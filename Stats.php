@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<form action="bob_form.asp">
+<form action="Stats.php" method="post">
 Title: <input type="text" name="FirstName" value=""><br>
 Chart Type: <select>
   <option value="Stats">Stats</option>
@@ -21,6 +21,11 @@ Chart Data: <textarea rows="5" cols="50">Bob Bradley, 99 </textarea>
 <input type="submit" value="Submit">
 </form>
 
+<h1> <!-- This is where the heading is echo back -->
+	<br>
+	<?php echo $_POST["FirstName"]; ?>
+	<br>
+</h1>
 
 </body>
 </html>
