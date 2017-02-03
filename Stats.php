@@ -16,7 +16,7 @@
 	<option value="Name">Name</option>
 	<option value="Last Name">Last</option>
       </select><br>
-      Chart Data: <textarea rows="5" cols="50">Bob Bradley, 99 </textarea>
+      Chart Data: <textarea name="ChartData" rows="5" cols="50">Bob Bradley, 99 </textarea>
       
       <input type="submit" value="Submit">
     </form>
@@ -39,6 +39,7 @@
        echo $_POST["str2"];
        echo "<br>";
        echo $_POST["str3"];
+       echo $_POST["ChartData"];
        ?>
     
   </body>
