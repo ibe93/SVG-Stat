@@ -44,16 +44,40 @@ Chart Data: <textarea action="Stats.php" method="post" name="comment" rows="5" c
 <br><br><hr>
 </form>
 
-<h1> <!--This is where the heading is echo back -->
-	
-	<br>
-	<?php echo $_POST["FirstName"]; ?>
-	<br>
-
+<br>
+<h1 style="align: centr;"> <!--This is where the heading is echo back -->
+  <?php echo $_POST["FirstName"]; ?>
+  <br>
 </h1>
+
+  <?php   	
+	$str = $_POST["comment"]; // Assigning Post to variable str
+
+  if($_POST) // Loop until the post is finish
+  {
+    foreach (explode("\n", $str) as $key) 
+    {
+      list($name, $grade) = explode(',', $key);
+
+      for ($i=0; $i <count($name) ; $i++)
+      {
+        echo "$name ======> $grade";
+      }
+    }
+}
+	/*$arr2 = (explode("/n", $str));  	 
+	print_r(arr2);
+	foreach ($arr2 as $key => $value) {
+		$arr2[$key] = explode(',', $value);
+		echo "$arr2[$key]";*/
+  	?>
+
+
 
 </div>
 
 
 </body>
 </html>
+
+
