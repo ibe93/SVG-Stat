@@ -31,7 +31,7 @@
 	    <option value="Pie">Pie</option>
 	  </select><br><hr>
 	  
-	  Sort by: <select>
+	  Sort by: <select name="selectSort">
 	    <option value="None">None</option>
 	    <option value="Score">Score</option>
 	    <option value="Name">Name</option>
@@ -52,27 +52,37 @@
       
       <?php   	
 	 $str = $_POST["comment"]; // Assigning Post to variable str
+	 
 	 $final_grade = [];
+	 $name = [];
+	 $firstName = [];
+	 $lastName = [];
 	 
 	 if($_POST) // Loop until the post is finish
 	 {
 	 foreach (explode("\n", $str) as $key) 
 	 {
-	 list($name, $grade) = explode(',', $key);
+	 list($name, $final_grade) = explode(',', $key);
+	 list($firstName, $lastName) = explode(" ", $name);
+	 }
+	 }
+	 function sorter(&$final_grade, &$firstName, &$lastName)
+	 {
+	 array_multisort($final_grade, $firstName, $lastName);
+	 }
 	 
-	 for ($i=0; $i <count($name) ; $i++)
-				     {
-				     echo "$name ======> $grade";
-				     echo "<br>";
-				     }
-				     }
-				     }
-  				     ?>
+ 	 if($_POST["selectSort"] == "Score")
+	 {
+	 sorter($final_grade, $firstName, $lastName);
 	 
+	 for($i = 0; $i < count($final_grade); $i++)
+			  {
+			  echo "$final_grade ===> $firstName ===> $lastName";
+			  echo "<br>";
+			  }
+			  }
+			  
+			  ?>
 	 
-	 
-	 </div>
-    
+	 </body>    
 </html>
-
-
