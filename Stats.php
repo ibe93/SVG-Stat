@@ -119,7 +119,25 @@ Chart Data: <textarea action="Stats.php" name="comment" rows="5" cols="50"></tex
 
 	if($_POST['chartType'] == "Bar")
 	{
-		
+		echo " <table style='width:100%'>
+  		<tr>
+    		<th>Name</th>
+    		<th>Grade</th>
+    		<th>Chart</th>
+  		</tr>";
+
+  		for ($j=0; $j <count($grade) ; $j++)
+  		{
+  			echo "<tr>
+    			<td>$firstName[$j] $lastName[$j]</td>
+    			<td>$grade[$j]</td>
+    			<td> <svg width='100' height='20'>
+  <rect width='$grade[$j]' height='20' style='fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)' />
+</svg> </td>
+  			</tr>";
+  		}
+  		
+		echo "</table> ";
 	}
 ?>
 
